@@ -1,4 +1,4 @@
-import 'package:mvvm_with_provider/data/network/status.dart';
+import 'package:mvvm_with_provider/data/response/status.dart';
 
 class ApiResponse<T> {
   Status? status;
