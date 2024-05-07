@@ -15,7 +15,7 @@ class _LoginViewState extends State<LoginView> {
         body: Center(
       child: InkWell(
           onTap: () {
-            Utils.snackbar('No internet connection', context);
+            Utils.flushbarErrorMessage('No internet connection', context);
             // Utils.toastMessage('No internet connection');
             // Utils.flushbarErrorMessage(
             //   'No internet connection',

@@ -12,13 +12,14 @@ class Utils {
         fontSize: 30);
   }
 
-  static flushbarErrorMessage(String message, BuildContext context) {
+  static flushbarErrorMessage(String message, context) {
     showFlushbar(
       context: context,
       flushbar: Flushbar(
         message: message,
         title: 'Error',
         backgroundColor: Colors.red,
+        borderRadius: BorderRadius.circular(10),
         titleColor: Colors.white,
         duration: const Duration(seconds: 3),
         positionOffset: 20,
