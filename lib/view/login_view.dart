@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_with_provider/res/components/round_button.dart';
 import 'package:mvvm_with_provider/utils/utils.dart';
 
 class LoginView extends StatefulWidget {
@@ -18,7 +19,21 @@ class _LoginViewState extends State<LoginView> {
   FocusNode passwordFocusNode = FocusNode();
 
   @override
+  void dispose() {
+    super.dispose();
+
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+
+    _obsecurePassword.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height * 1;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -66,6 +81,25 @@ class _LoginViewState extends State<LoginView> {
                               ? Icons.visibility_off
                               : Icons.visibility))),
                 );
+              },
+            ),
+            SizedBox(
+              height: height * .085,
+            ),
+            RoundeButton(
+              title: 'Login',
+              onPress: () {
+                if (_emailController.text.isEmpty) {
+                  Utils.flushbarErrorMessage('Please enter email', context);
+                  Utils.snackbar('Please enter email', context);
+                } else if (_passwordController.text.isEmpty) {
+                  Utils.flushbarErrorMessage('Please enter password', context);
+                } else if (_passwordController.text.length < 6) {
+                  Utils.flushbarErrorMessage(
+                      'Please enter 6 digit password', context);
+                } else {
+                  print('Api hit');
+                }
               },
             ),
           ],
