@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_with_provider/utils/routes/routes_name.dart';
+import 'package:mvvm_with_provider/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 import 'utils/routes/routes.dart';
 
@@ -13,12 +15,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'MVVM Provider',
-      theme: ThemeData(brightness: Brightness.light),
-      initialRoute: RoutesName.login,
-      onGenerateRoute: Routes.generateRoute,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AuthViewModel(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'MVVM Provider',
+        theme: ThemeData(brightness: Brightness.light),
+        initialRoute: RoutesName.login,
+        onGenerateRoute: Routes.generateRoute,
+      ),
     );
   }
 }
