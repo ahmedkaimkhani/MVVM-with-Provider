@@ -23,7 +23,9 @@ class RoundeButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: loading
-              ? const CircularProgressIndicator()
+              ? const CircularProgressIndicator(
+                  color: Colors.white,
+                )
               : Text(
                   title,
                   style: const TextStyle(color: AppColors.whiteColor),
