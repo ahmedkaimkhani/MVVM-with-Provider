@@ -8,7 +8,7 @@ import '../../model/user_model.dart';
 class SplashServices {
   Future<UserModel> getUserData() => UserViewModel().getUser();
 
-  void checkAuthentication(BuildContext context) async {
+  void checkAuthentication(context) async {
     getUserData().then((value) async {
       if (value.token == 'null' || value.token == '') {
         await Future.delayed(const Duration(seconds: 3));
