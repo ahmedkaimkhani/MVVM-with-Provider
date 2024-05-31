@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_with_provider/utils/routes/routes_name.dart';
 import 'package:mvvm_with_provider/view_model/auth_view_model.dart';
+import 'package:mvvm_with_provider/view_model/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 import 'utils/routes/routes.dart';
@@ -19,13 +20,16 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AuthViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserViewModel(),
         )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'MVVM Provider',
         theme: ThemeData(brightness: Brightness.light),
-        initialRoute: RoutesName.login,
+        initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,
       ),
     );
