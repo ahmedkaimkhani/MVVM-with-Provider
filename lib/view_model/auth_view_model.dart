@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mvvm_with_provider/repository/auth_repository.dart';
@@ -31,7 +29,7 @@ class AuthViewModel with ChangeNotifier {
       setLoading(false);
       if (kDebugMode) {
         Utils.flushbarErrorMessage('Login Successful', context);
-        Navigator.pushNamed(context, RoutesName.homeView);
+        Navigator.pushNamed(context, RoutesName.home);
         print(value.toString());
       }
     }).onError((error, stackTrace) {
@@ -49,7 +47,7 @@ class AuthViewModel with ChangeNotifier {
       setSignUpLoading(false);
       if (kDebugMode) {
         Utils.flushbarErrorMessage('SignUp Successful', context);
-        Navigator.pushNamed(context, RoutesName.homeView);
+        Navigator.pushNamed(context, RoutesName.home);
         print(value.toString());
       }
     }).onError((error, stackTrace) {

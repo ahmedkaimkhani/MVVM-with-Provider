@@ -4,5 +4,7 @@ class RoutesName {
   static const String signUp = "signup_view";
 
   // home screen routes name
-  static const String homeView = "home_view";
+  static const String home = "home_view";
+
+  static const String splash = "splash_view";
 }
